@@ -167,6 +167,12 @@ const conf = module.exports = convict({
         env: 'FEATURE_FLAGS_REDIS_HOST',
         format: String
       },
+      initialBackoff: {
+        default: '100 milliseconds',
+        doc: 'Initial backoff for feature-flagging Redis connection retries, increases exponentially with each attempt',
+        env: 'FEATURE_FLAGS_REDIS_TIMEOUT',
+        format: 'duration'
+      },
       maxConnections: {
         default: 1,
         doc: 'Maximum connection count for feature-flagging Redis pool',
@@ -190,6 +196,12 @@ const conf = module.exports = convict({
         doc: 'Redis port',
         env: 'FEATURE_FLAGS_REDIS_PORT',
         format: 'port'
+      },
+      retryCount: {
+        default: 5,
+        doc: 'Retry limit for feature-flagging Redis connection attempts',
+        env: 'FEATURE_FLAGS_REDIS_RETRY_COUNT',
+        format: 'int'
       }
     }
   },
