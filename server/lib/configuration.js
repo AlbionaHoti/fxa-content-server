@@ -174,13 +174,13 @@ const conf = module.exports = convict({
         format: 'duration'
       },
       maxConnections: {
-        default: 1,
+        default: 10,
         doc: 'Maximum connection count for feature-flagging Redis pool',
         env: 'FEATURE_FLAGS_REDIS_MAX_CONNECTIONS',
         format: 'nat'
       },
       maxPending: {
-        default: 1,
+        default: 10,
         doc: 'Maximum waiting client count for feature-flagging Redis pool',
         env: 'FEATURE_FLAGS_REDIS_MAX_PENDING',
         format: 'nat'
